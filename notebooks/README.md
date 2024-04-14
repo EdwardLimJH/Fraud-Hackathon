@@ -16,8 +16,7 @@ The repository includes the following notebooks:
 
 5. **XGBoost_Model_Tuning.ipynb**: Implements the XGBoost model, following our standardized workflow pipeline.
 
-## <details open>
-<summary>Usage</summary>
+## Usage
   
 ### Installation and Setup
 1. Clone the repository to your local machine:
@@ -41,5 +40,3 @@ pip install -r requirements.txt
 1. Navigate to the "models" folder in the repository.
 2. Download the saved model files (pickle files) for each model.
 3. In your Python environment, load the saved models using the pickle library.
-
-</details>
