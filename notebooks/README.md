@@ -6,13 +6,13 @@ Welcome to the Notebook Repository! This repository contains Jupyter notebooks i
 
 The repository includes the following notebooks:
 
-1. **DecisionTree_Model.ipynb**: Implements the Decision Tree model, the baseline model for the project, following our standardized workflow pipeline for data preprocessing (handling of missing values and categorical features, feature scaling and feature selection, and resampling), model training, hyperparameter tuning, and evaluation.
+1. **AdaBoost_Model.ipynb**: Implements the AdaBoost model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots) that contribute to hypothesis testing.
 
-2. **AdaBoost_Model_Tuning.ipynb**: Implements the AdaBoost model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots) that contribute to hypothesis testing.
+2. **DecisionTree_Model.ipynb**: Implements the Decision Tree model, the baseline model for the project, following our standardized workflow pipeline for data preprocessing (handling of missing values and categorical features, feature scaling and feature selection, and resampling), model training, hyperparameter tuning, and evaluation.
 
-3. **Gaussian_Model_Tuning.ipynb**: Implements the Gaussian Naive Bayes model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots) that contribute to hypothesis testing.
+3. **GaussianNB_Model.ipynb**: Implements the Gaussian Naive Bayes model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots) that contribute to hypothesis testing.
 
-4. **LogisticRegression_Model_Tuning.ipynb**: Implements the Logistic Regression model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and Shap values.
+4. **LogisticRegression_Model.ipynb**: Implements the Logistic Regression model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and Shap values.
 
 5. **XGBoost_Model_Tuning.ipynb**: Implements the XGBoost model, following the same pipeline as our baseline model.
 
