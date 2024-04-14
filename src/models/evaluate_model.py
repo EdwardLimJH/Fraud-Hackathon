@@ -25,7 +25,7 @@ def evaluate_predictions():
     DEFAULT_YTEST_PATH = pathjoin(data_dir,"processed","y_test.csv")
     y_test = pd.read_csv(parsed_args.get("ytest_path",DEFAULT_YTEST_PATH))
     y_pred = pd.read_csv(parsed_args.get("ypred_path"))
-    y_pred = y_pred["is_fraud"]
+    y_pred = y_pred["fraud_bool"]
     print("============= Evaluating performance =============")    
     score_results = {}
     score_results["accuracy_score"] = accuracy_score(y_test, y_pred)
