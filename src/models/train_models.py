@@ -16,7 +16,7 @@ class ModelNotSupported(Exception):
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument("-ix", "--xtrain_path", help="X_train file input")
-    parser.add_argument("-iy", "--ytrain_path", help="X_train file input")
+    parser.add_argument("-iy", "--ytrain_path", help="y_train file input")
     parser.add_argument("-s", "--saved_model_path", help="Filepath to save trained model")
     parser.add_argument("-m", "--model_name", help="Model name. A classifier from sklearn or xgboost", required=True)
     parser.add_argument("-d", "--dictionary", help="Input model parameters as JSON string")
