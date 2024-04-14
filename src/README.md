@@ -25,7 +25,7 @@ In the data folder there is only 1 python script (make_dataset.py). The script u
 
 To run the script simply navigate to the directory in the command prompt. 
 ```bash
-cd ..\..\Fraud-Hackathon\src\data
+cd Fraud-Hackathon\src\data
 ```
 
 Run the following code.
@@ -38,7 +38,7 @@ In the features folder there is only 1 python script (build_features.py). The sc
 
 To run the script simply navigate to the directory in the command prompt.
 ```bash
-cd ..\..\Fraud-Hackathon\src\features
+cd Fraud-Hackathon\src\features
 ```
 
 Run the following code.
@@ -57,7 +57,7 @@ evaluate_model.py generates evaluation score of the prediction against the groun
 
 To run the script simply navigate to the directory in the command prompt.
 ```bash
-cd ..\..\Fraud-Hackathon\src\models
+cd Fraud-Hackathon\src\models
 ```
 
 Run the following code to train the model. Change the model choice accordingly  
@@ -67,12 +67,12 @@ python train_model.py -m <"Model name">
 
 Run the following code to generate predictions. Change the trained model pickle file accordingly. 
 ```bash
-python predict_model.py -s "...\...\models\<model name.pkl>"
+python predict_model.py -s "models\<model name.pkl>"
 ```
 
 Run the following code to evaluate the model.  
 ```bash
-python evaluate_model.py -yp "...\data\predicitons\prediction.csv"
+python evaluate_model.py -yp "data\predicitons\prediction.csv"
 ```
 
 ### visualization folder
@@ -80,7 +80,7 @@ In the visualization folder there is only 1 python script (create_visualization.
 
 To run the script simply navigate to the directory in the command prompt.
 ```bash
-cd ..\..\Fraud-Hackathon\src\visualizations
+cd Fraud-Hackathon\src\visualizations
 ```
 
 Run the following code.
