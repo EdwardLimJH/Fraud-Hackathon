@@ -2,6 +2,7 @@
 
 ## Folder stucture 
 
+```bash
 ├── src <- Source code for use in this project.
 │ ├── __init__.py <- Makes src a Python module
 │ │
@@ -18,9 +19,10 @@
 │ │
 │ └── visualization <- Scripts to create exploratory and results orientedvisualizations
 │   └── visualize.py
-
+```
 ### data folder 
 In the data data folder there is only 1 python script. The script unzips the Base file. To run the script simply navigate to the directory in the command prompt and run the following code.
 
 ```bash
 python make_dataset.py
+```
