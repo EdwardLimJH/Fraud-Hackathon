@@ -1,20 +1,28 @@
 # Notebook Repository
 
-Welcome to the Model Notebook Repository! This repository contains Jupyter notebooks implementing our baseline and challenger machine learning models. Each notebook follows a standardized workflow pipeline for data preprocessing (handling of missing values and categorical features, feature scaling and feature selection, and resampling), model training, hyperparameter tuning, and evaluation.
+Welcome to the Notebook Repository! This repository contains Jupyter notebooks implementing various machine learning models and analysis for a predictive modeling task.
 
 ## Overview
 
 The repository includes the following notebooks:
 
-1. **DecisionTree_Model.ipynb**: Implements the Decision Tree model, the baseline model for the project, following our standardized workflow pipeline.
+1. **AdaBoost_Model.ipynb**: Implements the AdaBoost model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots) that contribute to hypothesis testing.
 
-2. **AdaBoost_Model_Tuning.ipynb**: Implements the AdaBoost model, following our standardized workflow pipeline. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots).
+2. **DecisionTree_Model.ipynb**: Implements the Decision Tree model, the baseline model for the project, following our standardized workflow pipeline for data preprocessing (handling of missing values and categorical features, feature scaling and feature selection, and resampling), model training, hyperparameter tuning, and evaluation.
 
-3. **Gaussian_Model_Tuning.ipynb**: Implements the Gaussian Naive Bayes model, following our standardized workflow pipeline. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots).
+3. **GaussianNB_Model.ipynb**: Implements the Gaussian Naive Bayes model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and PDP (Partial Dependence Plots) that contribute to hypothesis testing.
 
-4. **LogisticRegression_Model_Tuning.ipynb**: Implements the Logistic Regression model, following our standardized workflow pipeline. Additionally, it includes explanations using Lime and Shap values.
+4. **LogisticRegression_Model.ipynb**: Implements the Logistic Regression model, following the same pipeline as our baseline model. Additionally, it includes explanations using Lime and Shap values.
 
-5. **XGBoost_Model_Tuning.ipynb**: Implements the XGBoost model, following our standardized workflow pipeline.
+5. **XGBoost_Model_Tuning.ipynb**: Implements the XGBoost model, following the same pipeline as our baseline model.
+
+6. **eda.ipynb**: Conducts exploratory data analysis (EDA) to gain insights into the dataset. It experiments with the effect of scaling on correlation, feature importance, and multicollinearity. 
+
+7. **hypo_eda.ipynb**: This notebook explores hypotheses related to fraudulent activities, analyzing factors such as employment status, income, and phone validity. We employed Seaborn and Matplotlib for data visualization, alongside t-tests to validate hypotheses regarding fraudulent activities.
+
+8. **pipeline.ipynb**: Demonstrates our standardized machine learning workflow pipeline for data preprocessing, model training, and evaluation. 
+
+9. **resampling.ipynb**: This notebook explores feature selection and resampling techniques. Methods include Pearson correlation, variance thresholding, RFE, LASSO with CV, and stepwise selection. Resampling methods such as random undersampling, Tomek links, SMOTE, and combinations are evaluated using decision tree classifiers, comparing various performance metrics.
 
 ## Usage
   
