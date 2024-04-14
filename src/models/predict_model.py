@@ -24,6 +24,8 @@ def make_prediction():
     X_test = pd.read_csv(parsed_args.get("xtest_path",DEFAULT_XTEST_PATH))
     print("============= Loading saved model =============")
     saved_model = load_model(parsed_args.get("saved_model_path"))
+    trained_columns = saved_model.feature_names_in_.tolist()
+    X_test = X_test[trained_columns]
     print("============= Making Predictions =============")
     predictions = saved_model.predict(X_test)
     positive_class_prob = saved_model.predict_proba(X_test)[:, 1]
