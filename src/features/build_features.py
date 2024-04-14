@@ -163,7 +163,7 @@ def process_dataset():
     yt_resampled_SMOTE.to_csv(parsed_args.get("ytrain_resampled_path", DEFAULT_YTRAIN_RESAMPLED_PATH),
                               index=False)
     
-    X_test = X_test[selected_features]
+    X_test = X_test
     print("============= Saving final processed X_test data to csv =============")
     DEFAULT_XTEST_PATH = pathjoin(data_dir,"processed","X_test.csv")
     X_test.to_csv(parsed_args.get("xtest_path", DEFAULT_XTEST_PATH), index=False)
