@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 import pickle
 import statsmodels.api as sm
+from imblearn.over_sampling import SMOTE
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
@@ -16,7 +17,9 @@ def parse_arguments():
     parser.add_argument("-n",'--no_missing_filename', help='Filepath to save interrim data (Handle missing values)')
     parser.add_argument("-e",'--encoded_filename', help='Filepath to save interrim data (Encode categorical features)')
     parser.add_argument("-t",'--bss_threshold', type=float, help='Backward Stepwise Selection threshold')
-
+    parser.add_argument("-a",'--smote_sampling', type=float, help='Backward Stepwise Selection threshold')
+    parser.add_argument("-b",'--smote_seed', type=int, help='Random State for train-test split')
+    
     args = parser.parse_args()
     args_dict = {k: v for k, v in vars(args).items() if v is not None}
     return args_dict
@@ -102,9 +105,11 @@ def make_dataset():
     # Separate the feature matrix and target variable
     X = df.drop('fraud_bool', axis=1)
     y = df['fraud_bool']
-    tts_seed = parsed_args.get("tts_seed", 42)
+
     print("============= Train Test Split =============")
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=tts_seed, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, 
+                                                        random_state=parsed_args.get("tts_seed", 42), 
+                                                        stratify=y)
 
     numeric_features = ['income', 'name_email_similarity', 'current_address_months_count', 'customer_age', 'days_since_request', 'zip_count_4w', 'velocity_6h', 'velocity_24h', 
                     'velocity_4w', 'bank_branch_count_8w', 'date_of_birth_distinct_emails_4w', 'credit_risk_score', 'proposed_credit_limit', 'session_length_in_minutes']
@@ -115,13 +120,27 @@ def make_dataset():
     X_test[numeric_features] = scaler.transform(X_test[numeric_features])
     print("============= Saving MinMaxScaler as a pickle object =============")
     save_pkl(scaler, pathjoin(data_dir,"processed","min_max_scaler.pkl"))
+    
     print("============= Running Backward stepwise Selection =============")
     selected_features = backward_stepwise_selection(X_train, y_train, parsed_args.get("backward_stepwise_selection_threshold",0.5))
+    
     X_train = X_train[selected_features]
-    print("============= Saving final processed X_train data to csv =============")
-    X_train.to_csv(pathjoin(data_dir,"processed","X_train.csv"), index=False)
-    print("============= Saving final processed y_train data to csv =============")
-    y_train.to_csv(pathjoin(data_dir,"processed","y_train.csv"), index=False)
+    print("============= Saving processed X_train data before resampling to csv =============")
+    X_train.to_csv(pathjoin(data_dir,"processed","X_train_preresampling.csv"), index=False)
+    print("============= Saving processed y_train data before resampling to csv =============")
+    y_train.to_csv(pathjoin(data_dir,"processed","y_train_preresampling.csv"), index=False)
+    
+    smote = SMOTE(random_state=parsed_args.get("smote_seed", 42), 
+                  sampling_strategy = parsed_args.get("smote_sampling", 0.666)) #ratio of minority:majority 40:60
+    Xt_resampled_SMOTE, yt_resampled_SMOTE = smote.fit_resample(X_train, y_train)
+    ratio_SMOTE = yt_resampled_SMOTE.value_counts() / len(yt_resampled_SMOTE) * 100
+    print(f'% of non-fraud class in resampled data: {round(ratio_SMOTE[0],3)}%\n% of fraud class in resampled data: {round(ratio_SMOTE[1],3)}%')
+    
+    print("============= Saving final processed X_train_resampled data to csv =============")
+    Xt_resampled_SMOTE.to_csv(pathjoin(data_dir,"processed","X_train_resampled.csv"), index=False)
+    print("============= Saving final processed y_train_resampled data to csv =============")
+    yt_resampled_SMOTE.to_csv(pathjoin(data_dir,"processed","y_train_resampled.csv"), index=False)
+    
     X_test = X_test[selected_features]
     print("============= Saving final processed X_test data to csv =============")
     X_test.to_csv(pathjoin(data_dir,"processed","X_test.csv"), index=False)
