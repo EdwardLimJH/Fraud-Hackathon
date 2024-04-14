@@ -16,6 +16,7 @@ def parse_arguments():
     parser.add_argument("-g",'--new_features_filename', help='Filepath to save interrim data (generate new features)')
     parser.add_argument("-n",'--no_missing_filename', help='Filepath to save interrim data (Handle missing values)')
     parser.add_argument("-e",'--encoded_filename', help='Filepath to save interrim data (Encode categorical features)')
+    parser.add_argument("-m",'--minmax_scaler_filaname', help='Filepath to save MinMax Scaler pkl object')
     parser.add_argument("-xn",'--xtrain_no_resample_path', help='File path to save Processed X_train')
     parser.add_argument("-yn",'--ytrain_no_resample_path', help='File path to save Processed y_train')
     parser.add_argument("-bsst",'--bss_threshold', type=float, help='Backward Stepwise Selection threshold')
@@ -130,7 +131,8 @@ def process_dataset():
     X_train[numeric_features] = scaler.fit_transform(X_train[numeric_features])
     X_test[numeric_features] = scaler.transform(X_test[numeric_features])
     print("============= Saving MinMaxScaler as a pickle object =============")
-    save_pkl(scaler, pathjoin(data_dir,"processed","min_max_scaler.pkl"))
+    DEFAULT_MINMAX_PATH = pathjoin(pathjoin(data_dir,"processed","min_max_scaler.pkl"))
+    save_pkl(scaler, parsed_args.get("minmax_scaler_filaname",DEFAULT_MINMAX_PATH) )
     
     print("============= Running Backward stepwise Selection =============")
     DEFAULT_BSS_THRESHOLD = 0.05
