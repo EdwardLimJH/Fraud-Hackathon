@@ -10,6 +10,7 @@ from sklearn.feature_selection import chi2
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i",'--raw_csv_path', help='Input csv file path')
+    parser.add_argument("-o",'--output_folder_path', help='Output folder file path')
     args = parser.parse_args()
     args_dict = {k: v for k, v in vars(args).items() if v is not None}
     return args_dict
@@ -149,7 +150,7 @@ def p_values_plot(chi2_df, save_path):
     
 def create_EDA():
     data_dir = pathjoin("..","..","data")
-    save_dir = pathjoin("..","..","reports")
+    save_dir = parsed_args.get("output_folder_path", pathjoin("..","..","reports"))
     print("============= Parsing Arguments =============")
     DEAFULT_RAW_CSV_PATH = pathjoin(data_dir,"raw","base.csv")
     raw_csv_path = parsed_args.get("raw_csv_path", DEAFULT_RAW_CSV_PATH)
