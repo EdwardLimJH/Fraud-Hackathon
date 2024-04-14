@@ -1,4 +1,4 @@
-# Model Notebook Repository
+# Notebook Repository
 
 Welcome to the Model Notebook Repository! This repository contains Jupyter notebooks implementing our baseline and challenger machine learning models. Each notebook follows a standardized workflow pipeline for data preprocessing (handling of missing values and categorical features, feature scaling and feature selection, and resampling), model training, hyperparameter tuning, and evaluation.
 
