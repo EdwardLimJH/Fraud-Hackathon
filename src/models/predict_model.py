@@ -2,6 +2,7 @@ import argparse
 from os.path import join as pathjoin
 import pandas as pd
 import pickle
+import numpy as np
 
 
 def load_model(model_filename):
@@ -18,8 +19,7 @@ def parse_arguments():
     return args_dict
 
 def make_prediction():
-    data_dir = pathjoin("..","..","data")
-    DEFAULT_XTEST_PATH = pathjoin(data_dir,"processed","X_test.csv")
+    DEFAULT_XTEST_PATH = pathjoin("..","..","data","processed","X_test.csv")
     print("============= Reading in CSV data =============")    
     X_test = pd.read_csv(parsed_args.get("xtest_path",DEFAULT_XTEST_PATH))
     print("============= Loading saved model =============")
@@ -27,13 +27,13 @@ def make_prediction():
     trained_columns = saved_model.feature_names_in_.tolist()
     X_test = X_test[trained_columns]
     print("============= Making Predictions =============")
-    predictions = saved_model.predict(X_test)
     positive_class_prob = saved_model.predict_proba(X_test)[:, 1]
+    predictions = np.where(positive_class_prob >= 0.5, 1, 0)
     
     results = pd.DataFrame({"is_fraud":predictions,
                             "probability_of_fraud":positive_class_prob})
     print("============= Saving output into csv file =============")
-    DEFAULT_OUTPUT_PATH = pathjoin("..","..","data","predictions","predictions.csv")
+    DEFAULT_OUTPUT_PATH = pathjoin("..","..","models","predictions.csv")
     results.to_csv(parsed_args.get("output_path", DEFAULT_OUTPUT_PATH), index=False)
 
 if __name__ == "__main__":

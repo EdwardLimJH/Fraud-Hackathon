@@ -16,9 +16,8 @@ def parse_arguments():
 
 
 def evaluate_predictions():
-    print("============= Reading in CSV data =============")    
-    data_dir = pathjoin("..","..","data")
-    DEFAULT_YTEST_PATH = pathjoin(data_dir,"processed","y_test.csv")
+    print("============= Reading in CSV data =============")
+    DEFAULT_YTEST_PATH = pathjoin("..","..","data","processed","y_test.csv")
     y_test = pd.read_csv(parsed_args.get("ytest_path",DEFAULT_YTEST_PATH))
     y_pred = pd.read_csv(parsed_args.get("ypred_path"))
     y_pred = y_pred["is_fraud"]
@@ -42,7 +41,7 @@ def evaluate_predictions():
 
     print("============= Saving evaluation results to csv =============")    
     evaluation_results = pd.DataFrame(score_results)
-    DEFAULT_EVALUATION_RESULTS_PATH = pathjoin(data_dir,"predictions","evaluation.csv")
+    DEFAULT_EVALUATION_RESULTS_PATH = pathjoin("..","..","models","evaluation.csv")
     evaluation_results.to_csv(parsed_args.get("output_path",DEFAULT_EVALUATION_RESULTS_PATH), index=False)
     
 
