@@ -23,7 +23,7 @@ def fraud_distribution(df, save_path):
     # Plotting the pie chart
     labels = ['Non-Fraud', 'Fraud']
     sizes = [count_of_0, count_of_1]
-    colors = ['blue', 'red']
+    colors = ['#66b3ff', '#ff9999']
 
     plt.figure(figsize=(8, 6))
     plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=140)
