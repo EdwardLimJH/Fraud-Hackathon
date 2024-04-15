@@ -4,10 +4,6 @@ import pandas as pd
 import pickle
 from sklearn.metrics import classification_report, accuracy_score, recall_score, precision_score, fbeta_score, f1_score, average_precision_score, precision_recall_curve, confusion_matrix,balanced_accuracy_score
 
-
-def load_model(model_filename):
-    return pickle.load(open(model_filename, "rb"))
-
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument("-yp", "--ypred_path", help="y_pred file path", required=True)
