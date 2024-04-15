@@ -19,8 +19,7 @@ def parse_arguments():
     return args_dict
 
 def make_prediction():
-    data_dir = pathjoin("..","..","data")
-    DEFAULT_XTEST_PATH = pathjoin(data_dir,"processed","X_test.csv")
+    DEFAULT_XTEST_PATH = pathjoin("..","..","data","processed","X_test.csv")
     print("============= Reading in CSV data =============")    
     X_test = pd.read_csv(parsed_args.get("xtest_path",DEFAULT_XTEST_PATH))
     print("============= Loading saved model =============")
@@ -34,7 +33,7 @@ def make_prediction():
     results = pd.DataFrame({"is_fraud":predictions,
                             "probability_of_fraud":positive_class_prob})
     print("============= Saving output into csv file =============")
-    DEFAULT_OUTPUT_PATH = pathjoin("..","..","data","predictions","predictions.csv")
+    DEFAULT_OUTPUT_PATH = pathjoin("..","..","models","predictions.csv")
     results.to_csv(parsed_args.get("output_path", DEFAULT_OUTPUT_PATH), index=False)
 
 if __name__ == "__main__":
