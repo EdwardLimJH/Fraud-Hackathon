@@ -25,7 +25,7 @@ In the data folder there is only 1 python script (make_dataset.py). The script u
 
 To run the script simply navigate to the directory in the command prompt. 
 ```bash
-cd Fraud-Hackathon\src\data
+cd ..\..\Fraud-Hackathon\src\data
 ```
 
 Run the following code.
@@ -49,7 +49,7 @@ There are 7 functions in the script.
 
 To run the script simply navigate to the directory in the command prompt.
 ```bash
-cd Fraud-Hackathon\src\features
+cd ..\..\Fraud-Hackathon\src\features
 ```
 
 Run the following code.
@@ -61,7 +61,7 @@ python build_features.py
 In the models folder there are 3 python scripts (evaluate_model.py, predict_model.py, train_model.py). The order of running each script is train_model.py -> predict_model.py -> evaluate_model.py. 
 
 ### train_model.py
-train_model.py is the script to train the model of choice to specify the model of choice add -m <"Model name"> to the back of the command. The trained model will be saved as a pickle file under "models\<model name.pkl>"
+train_model.py is the script to train the model of choice to specify the model of choice add -m <"Model name"> to the back of the command. The trained model will be saved as a pickle file under "..\..\Fraud-Hackaton\models\<model name.pkl>"
 
 There is only 1 function in the script.
 
@@ -69,7 +69,7 @@ get_model(). Specify the model name when running the script. Some explamples are
 
 To run the script simply navigate to the directory in the command prompt.
 ```bash
-cd Fraud-Hackathon\src\models
+cd ..\..\Fraud-Hackathon\src\models
 ```
 
 Run the following code to train the model. Change the model choice accordingly  
@@ -77,20 +77,20 @@ Run the following code to train the model. Change the model choice accordingly
 python train_model.py -m <"Model name">
 ```
 ### predict_model.py
-predict_model.py generates prediction of the test set usng the trained models. Specify the file path of the pickle file for the model at the end of the command. -s "models\<model name.pkl>" 
+predict_model.py generates prediction of the test set usng the trained models. Specify the file path of the pickle file for the model at the end of the command. -s "..\..\Fraud-Hackathon\models\<model name.pkl>". 
 
-load_model(). Loads the trained model to generate predictions. Specify the file path at the end of the command -s "models\<model name.pkl>".
+load_model(). Loads the trained model to generate predictions. Specify the file path at the end of the command -s "..\..\Fraud-Hackathon\models\<model name.pkl>".  
 
 Run the following code in the same directory to generate predictions. Change the trained model pickle file accordingly. 
 ```bash
-python predict_model.py -s "models\<model name.pkl>"
+python predict_model.py -s "..\..\Fraud-Hackathon\models\<model name.pkl>"
 ```
 ### evaluate_model.py
-evaluate_model.py generates evaluation score of the prediction against the ground truth. Specify the location of the prediction csv file. -yp "models\prediction.csv"
+evaluate_model.py generates evaluation score of the prediction against the ground truth. Specify the location of the prediction csv file. -yp "..\..\Fraud-Hackathon\models\prediction.csv"
 
 Run the following code in the same directory to evaluate the model.  
 ```bash
-python evaluate_model.py -yp "models\prediction.csv"
+python evaluate_model.py -yp "..\..\Fraud-Hackathon\models\prediction.csv"
 ```
 
 ### visualization folder
@@ -105,7 +105,7 @@ There are 5 main functions to generate plots.
 
 To run the script simply navigate to the directory in the command prompt.
 ```bash
-cd Fraud-Hackathon\src\visualizations
+cd ..\..\Fraud-Hackathon\src\visualizations
 ```
 
 Run the following code.
