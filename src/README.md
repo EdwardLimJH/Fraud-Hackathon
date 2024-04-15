@@ -18,7 +18,8 @@
 │ │ └── train_model.py
 │ │
 │ └── visualization 
-│   └── visualize.py
+│   ├── create_xml.py
+│   └── create_visualizations.py
 ```
 ### data folder 
 In the data folder there is only 1 python script (make_dataset.py). The script unzips the Base.zip file and saves a Base.csv file. 
@@ -94,8 +95,9 @@ python evaluate_model.py -yp "..\..\Fraud-Hackathon\models\prediction.csv"
 ```
 
 ### visualization folder
-In the visualization folder there is only 1 python script (create_visualization.py). The script will generate all the plots we created for Exploratory Data Analysis.
+In the visualization folder there are 2 python script (create_visualization.py, create_xml.py). `create_visualization.py` will generate all the plots we created for Exploratory Data Analysis. `create_xml.py` will generate all the plots related to explanable ML techniques.
 
+`create_visualizations.py`:
 There are 5 main functions to generate plots.
 
 1) fraud_distribution(). Creates the plot of the ratio of fraud to non-fraud 
@@ -111,4 +113,19 @@ cd ..\..\Fraud-Hackathon\src\visualizations
 Run the following code.
 ```bash
 python create_visualizations.py
+```
+
+`create_xml.py` :
+There is only 1 function in the script.
+
+create_xml(). Specify the path to the saved train model when running the script. An example is -s ../../models/logistic.pkl.
+
+To run the script simply navigate to the directory in the command prompt.
+```bash
+cd ..\..\Fraud-Hackathon\src\visualizations
+```
+
+Run the following code to train the model. Change the model choice accordingly  
+```bash
+python create_xml.py -s "../../models/logistic.pkl"
 ```

@@ -62,7 +62,8 @@ Fraud-Hackathon
     │   └── evaluate_model.py <- Script to evaluate model performanced using predictions
     │
     └── visualization  <- Scripts to create exploratory and results oriented visualizations
-        └── visualize.py      <- Script to generate visualizations used in the report
+        ├── create_xml.py  <- Script to generate XML related plots.
+        └── create_visualizations.py      <- Script to generate visualizations used in the report
 ```
 
 
@@ -71,7 +72,7 @@ There are 2 methods to run the code in the files, 1) Running using `make` and 2)
 
 ### Method 1 : Running using `make`
 ```bash
-# To run the full pipeline
+# To run the full pipeline (excluding visualizations and xml visualizations)
 1. cd into the Fraud-Hackathon/ directory
 2. make
 ```
@@ -87,8 +88,12 @@ Available options:
     predict <- Makes predictions with a saved model
     evaluate <- Evalaute the performance of the models with its predictions
     visualize <- Generate diagrams used in the report
+    xml  <- Generate XML plots 
     ]  e.g make train 
 ```
+The `makefile` assumes that the commands are run sequentially, [venv -> dataset -> features -> train -> predict -> evaluate], if users are using `make <part>`.
+
+For make visualize and xml, it assumes that [venv -> dataset -> features -> train] has been run, and that the following files are present `Fraud-Hackathon/models/logisticregression.pkl`, `Fraud-Hackathon/data/processed/X_train_resampled.csv`, `Fraud-Hackathon/data/processed/X_test.csv`.
 
 ### Method 2 : Running the scripts directly
 ```text
@@ -96,8 +101,10 @@ Available options:
 1. Install packages required 
 pip install -r requirements.txt
 
-2. Change directory into src/ folder
-cd src/
+2. Change directory into folder containing the script you wish to run
+# e.g I want to run models/predict_model.py. 
+# Assuming users are at the Fraud-hackathon folder,
+cd src/models
 
 Refer to `Fraud-Hackathon\src\README.md` for more details to run each script.
 ```
