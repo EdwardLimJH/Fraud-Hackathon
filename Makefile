@@ -10,6 +10,7 @@ ifeq ($(OS), Linux)
 else # Windows
 	./venv/Scripts/activate.bat
 endif
+	python --version
 
 venv/bin/activate: requirements.txt
 	python -m venv venv
@@ -32,11 +33,10 @@ train:
 	python ./src/models/train_models.py -ix ./data/processed/X_train_resampled.csv -iy ./data/processed/y_train_resampled.csv -m logisticregression -s ./models/logisticregression.pkl
 
 predict:
-	python ./src/models/predict_model.py -s ./models/logisticregression.pkl -o ./data/predictions/logisticregression_predictions.csv -ix ./data/processed/X_test.csv
+	python ./src/models/predict_model.py -s ./models/logisticregression.pkl -o ./models/logisticregression_predictions.csv -ix ./data/processed/X_test.csv
 
 evaluate:
-	python ./src/models/evaluate_model.py -yp ./data/predictions/logisticregression_predictions.csv -o ./data/predictions/logisticregression_eval.csv -yt ./data/processed/y_test.csv
-
+	python ./src/models/evaluate_model.py -yp ./models/logisticregression_predictions.csv -o ./models/logisticregression_eval.csv -yt ./data/processed/y_test.csv
 
 visualize:
 	python ./src/visualizations/create_visualizations.py -i ./data/raw/base.csv -o ./reports/
