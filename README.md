@@ -71,6 +71,7 @@ Fraud-Hackathon
 There are 2 methods to run the code in the files, 1) Running using `make` and 2) Running the python scripts directly.
 
 ### Method 1 : Running using `make`
+Please ensure that the `make` command has been installed.
 ```bash
 # To run the full pipeline (excluding visualizations and xml visualizations)
 1. cd into the Fraud-Hackathon/ directory
