@@ -29,7 +29,7 @@ def make_prediction():
     X_test = X_test[trained_columns]
     print("============= Making Predictions =============")
     positive_class_prob = saved_model.predict_proba(X_test)[:, 1]
-    predictions = np.where(positive_class_prob > 0.5, 1, 0)
+    predictions = np.where(positive_class_prob >= 0.5, 1, 0)
     
     results = pd.DataFrame({"is_fraud":predictions,
                             "probability_of_fraud":positive_class_prob})
