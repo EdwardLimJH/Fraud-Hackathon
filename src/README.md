@@ -60,7 +60,8 @@ python build_features.py
 ### models folder
 In the models folder there are 3 python scripts (evaluate_model.py, predict_model.py, train_model.py). The order of running each script is train_model.py -> predict_model.py -> evaluate_model.py. 
 
-1) train_model.py is the script to train the model of choice to specify the model of choice add -m <"Model name"> to the back of the command. The trained model will be saved as a pickle file under "models\<model name.pkl>"
+### train_model
+train_model.py is the script to train the model of choice to specify the model of choice add -m <"Model name"> to the back of the command. The trained model will be saved as a pickle file under "models\<model name.pkl>"
 
 There is only 1 function in the script.
 
@@ -75,7 +76,8 @@ Run the following code to train the model. Change the model choice accordingly
 ```bash
 python train_model.py -m <"Model name">
 ```
-2) predict_model.py generates prediction of the test set usng the trained models. Specify the file path of the pickle file for the model at the end of the command. -s "models\<model name.pkl>" 
+### predict_model
+predict_model.py generates prediction of the test set usng the trained models. Specify the file path of the pickle file for the model at the end of the command. -s "models\<model name.pkl>" 
 
 load_model(). Loads the trained model to generate predictions. Specify the file path at the end of the command -s "models\<model name.pkl>".
 
@@ -83,8 +85,8 @@ Run the following code in the same directory to generate predictions. Change the
 ```bash
 python predict_model.py -s "models\<model name.pkl>"
 ```
-
-3) evaluate_model.py generates evaluation score of the prediction against the ground truth. Specify the location of the prediction csv file. -yp "models\prediction.csv"
+### evaluate_model
+evaluate_model.py generates evaluation score of the prediction against the ground truth. Specify the location of the prediction csv file. -yp "models\prediction.csv"
 
 Run the following code in the same directory to evaluate the model.  
 ```bash
