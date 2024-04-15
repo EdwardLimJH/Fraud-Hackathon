@@ -4,20 +4,20 @@
 
 ```
 ├── src 
-│ ├── __init__.py 
+│ ├── __init__.py <- Makes src a Python module
 │ │
-│ ├── data 
+│ ├── data <- Script to download data
 │ │ └── make_dataset.py
 │ │
-│ ├── features 
+│ ├── features <- Script to turn raw data into features for modeling
 │ │ └── build_features.py
 │ │
-│ ├── models 
+│ ├── models <- Scripts to train models and then use trained models to make
 │ │ ├── evaluate_model.py
 │ │ ├── predict_model.py
 │ │ └── train_model.py
 │ │
-│ └── visualization 
+│ └── visualization <- Scripts to create exploratory and results oriented visualizations
 │   ├── create_xml.py
 │   └── create_visualizations.py
 ```
