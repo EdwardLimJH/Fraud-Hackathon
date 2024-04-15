@@ -27,16 +27,16 @@ Fraud-Hackathon
 │   │                  `1.0-jqp-initial-data-exploration`. For more details on what each notebook
 │   │                  is about, refer to `notebooks/README.md`
 │   │ 
-│   ├── AdaBoost_Model.ipynb 
-│   ├── DecisionTree_Model.ipynb
+│   ├── AdaBoost-Model.ipynb 
+│   ├── DecisionTree-Model.ipynb
 │   ├── eda.ipynb
-│   ├── GaussianNB_Model.ipynb
-│   ├── hypo_eda.ipynb
-│   ├── LogisticRegression_Model.ipynb
+│   ├── GaussianNB-Model.ipynb
+│   ├── Hypothesis-EDA.ipynb
+│   ├── LogisticRegression-Model.ipynb
 │   ├── pipeline.ipynb
 │   ├── README.md
 │   ├── resampling.ipynb
-│   └── XGBoost_Model.ipynb
+│   └── XGBoost-Model.ipynb
 │  
 ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
 │

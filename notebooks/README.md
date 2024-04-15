@@ -16,7 +16,7 @@ The repository includes the following notebooks:
 
 5. **XGBoost-Model.ipynb**: Implements the XGBoost model, following the same pipeline as our baseline model.
 
-6. **EDA.ipynb**: Conducts exploratory data analysis (EDA) to gain insights into the dataset. It experiments with the effect of scaling on correlation, feature importance, and multicollinearity. 
+6. **eda.ipynb**: Conducts exploratory data analysis (EDA) to gain insights into the dataset. It experiments with the effect of scaling on correlation, feature importance, and multicollinearity. 
 
 7. **Hypothesis-EDA.ipynb**: This notebook explores hypotheses related to fraudulent activities, analyzing factors such as employment status, income, and phone validity. We employed Seaborn and Matplotlib for data visualization, alongside t-tests to validate hypotheses regarding fraudulent activities.
 
