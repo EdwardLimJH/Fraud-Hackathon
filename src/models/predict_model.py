@@ -2,6 +2,7 @@ import argparse
 from os.path import join as pathjoin
 import pandas as pd
 import pickle
+import numpy as np
 
 
 def load_model(model_filename):
@@ -27,8 +28,8 @@ def make_prediction():
     trained_columns = saved_model.feature_names_in_.tolist()
     X_test = X_test[trained_columns]
     print("============= Making Predictions =============")
-    predictions = saved_model.predict(X_test)
     positive_class_prob = saved_model.predict_proba(X_test)[:, 1]
+    predictions = np.where(positive_class_prob > 0.5, 1, 0)
     
     results = pd.DataFrame({"is_fraud":predictions,
                             "probability_of_fraud":positive_class_prob})
