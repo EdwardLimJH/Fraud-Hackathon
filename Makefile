@@ -40,3 +40,6 @@ evaluate:
 
 visualize:
 	python ./src/visualizations/create_visualizations.py -i ./data/raw/base.csv -o ./reports/
+
+xml:
+	python ./src/visualizations/create_xml.py -xr ./data/processed/X_train_resampled.csv -xt ./data/processed/X_test.csv -s ./models/logisticregression.pkl -lo ./reports/figures/logisticregression_lime.html -pdp ./reports/figures/logisticregression_pdp_dependence_plot.png -pip ./reports/figures/logisticregression_pdp_isolation_plot.png -sdp ./reports/figures/logisticregression_shap_dot_plot.png -sbp ./reports/figures/logisticregression_shap_bar_plot.png
