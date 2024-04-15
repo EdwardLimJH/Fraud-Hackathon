@@ -6,7 +6,7 @@ Prior to installation, you can clone the repository. We use python 3.12.2, and t
 
 
 ## Files Structure
-```bash
+```bash '
 Fraud-Hackathon
 ├── LICENSE
 ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -63,6 +63,7 @@ Fraud-Hackathon
     │
     └── visualization  <- Scripts to create exploratory and results oriented visualizations
         └── visualize.py      <- Script to generate visualizations used in the report
+        '
 ```
 
 
