@@ -2,7 +2,7 @@
 
 ## Folder stucture 
 
-```bash
+```
 ├── src 
 │ ├── __init__.py 
 │ │
